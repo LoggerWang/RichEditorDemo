@@ -1,0 +1,123 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="bottom"
+    android:orientation="vertical">
+
+<!--    <com.galaxy.stars.common.component.view.TitleView
+        android:id="@id/title_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />-->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/edit_bottom_linear"
+        android:fillViewport="true"
+        android:orientation="vertical">
+        <com.example.legend.richeditordemo.RichEditor
+            android:id="@+id/edit_addcontent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white" />
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/edit_bottom_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:visibility="visible">
+
+        <HorizontalScrollView
+            android:id="@+id/edit_bottom_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/whole_border_grey"
+            android:scrollbars="none"
+            android:visibility="invisible">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+
+                <ImageButton
+                    android:id="@+id/action_bold"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_b" />
+
+                <ImageButton
+                    android:id="@+id/action_italic"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_i" />
+
+
+                <ImageButton
+                    android:id="@+id/action_underline"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_u" />
+
+                <ImageButton
+                    android:id="@+id/action_align_left"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_left" />
+
+                <ImageButton
+                    android:id="@+id/action_align_center"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_center" />
+
+                <ImageButton
+                    android:id="@+id/action_align_right"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_right" />
+
+                <ImageButton
+                    android:id="@+id/action_ol"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_ol" />
+
+                <ImageButton
+                    android:id="@+id/action_li"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@color/transparent"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_li" />
+
+                <ImageButton
+                    android:id="@+id/action_close"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@null"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/edit_close" />
+            </LinearLayout>
+        </HorizontalScrollView>
+    </RelativeLayout>
+</RelativeLayout>
