@@ -15,6 +15,8 @@ import android.widget.RelativeLayout;
 
 
 import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 /**
@@ -24,7 +26,8 @@ import java.util.Map;
  */
 
 public class RichEditActivity extends Activity implements View.OnLayoutChangeListener {
-
+    /**输入管理器*/
+    private InputMethodManager imm;
     //content控件
     private RichEditor edit_addcontent;
 
@@ -61,7 +64,15 @@ public class RichEditActivity extends Activity implements View.OnLayoutChangeLis
         setContentView(R.layout.activity_rich_edit);
         initDatas();
         initViews();
+        edit_addcontent.requestFocus();
+        Timer timer =new Timer();
 
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                showSoftKeyboard(edit_addcontent);
+            }
+        },500);
     }
 
     void initDatas() {
@@ -386,5 +397,19 @@ public class RichEditActivity extends Activity implements View.OnLayoutChangeLis
     }
 
     public class JsInterface {
+    }
+
+
+    /**
+     * 显示软键盘
+     * @param view 控件
+     */
+    public void showSoftKeyboard(View view) {
+        if (view == null) {
+            return;
+        }
+        if (inputMethodManager !=null && view.requestFocus()) {
+            inputMethodManager.showSoftInput(view, InputMethodManager.SHOW_FORCED);
+        }
     }
 }
